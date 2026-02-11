@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base ────────────────────────────────────────── */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --argus-primary: #08090A;
+  --argus-secondary: #111214;
+  --argus-tertiary: #1A1C1F;
+  --argus-accent: #00A3FF;
+  --argus-border: #1E2025;
+  --argus-text: #E8EAED;
+  --argus-text-dim: #6B7280;
+  --argus-text-muted: #9CA3AF;
+}
+
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: var(--argus-primary);
+  color: var(--argus-text);
+  font-family: 'JetBrains Mono', monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Scrollbar ───────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2A2D33;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3A3D43;
+}
+
+/* ─── Utility ─────────────────────────────────────── */
+
+@layer components {
+  .argus-card {
+    @apply bg-argus-secondary border border-argus-border;
+  }
+
+  .argus-card-elevated {
+    @apply bg-argus-tertiary border border-argus-border-light;
+  }
+
+  .argus-label {
+    @apply font-mono text-xxs font-semibold tracking-[0.15em] uppercase text-argus-neutral-light;
+  }
+
+  .argus-value {
+    @apply font-mono text-sm font-medium text-argus-light;
+  }
+
+  .argus-glow {
+    box-shadow: 0 0 20px rgba(0, 163, 255, 0.15), 0 0 60px rgba(0, 163, 255, 0.05);
+  }
+
+  .argus-border-glow {
+    border-color: rgba(0, 163, 255, 0.3);
+    box-shadow: inset 0 0 20px rgba(0, 163, 255, 0.03);
+  }
+}
+
+/* ─── Status Pulse ────────────────────────────────── */
+
+@keyframes statusPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.status-pulse {
+  animation: statusPulse 2s ease-in-out infinite;
+}
+
+/* ─── Scanline Effect ─────────────────────────────── */
+
+.scanline::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(0, 163, 255, 0.15),
+    transparent
+  );
+  animation: scan 4s linear infinite;
+  pointer-events: none;
+}
