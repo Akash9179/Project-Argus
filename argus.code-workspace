@@ -1,0 +1,64 @@
+{
+  "folders": [
+    {
+      "name": "🔧 Backend API",
+      "path": "backend"
+    },
+    {
+      "name": "👁️ Perception Service",
+      "path": "perception"
+    },
+    {
+      "name": "🖥️ Frontend",
+      "path": "frontend"
+    },
+    {
+      "name": "📁 Project Root",
+      "path": "."
+    }
+  ],
+  "settings": {
+    // Python settings (backend + perception)
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+    "[python]": {
+      "editor.defaultFormatter": "charliermarsh.ruff",
+      "editor.formatOnSave": true,
+      "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit",
+        "source.organizeImports": "explicit"
+      }
+    },
+    // TypeScript settings (frontend)
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true
+    },
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true
+    },
+    // General
+    "editor.tabSize": 2,
+    "[python]": {
+      "editor.tabSize": 4
+    },
+    "files.exclude": {
+      "**/__pycache__": true,
+      "**/.pytest_cache": true,
+      "**/node_modules": true,
+      "**/.ruff_cache": true
+    },
+    // Terminal
+    "terminal.integrated.cwd": "${workspaceFolder}"
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-python.python",
+      "charliermarsh.ruff",
+      "esbenp.prettier-vscode",
+      "dbaeumer.vscode-eslint",
+      "ms-azuretools.vscode-docker",
+      "bradlc.vscode-tailwindcss"
+    ]
+  }
+}
